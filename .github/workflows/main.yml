@@ -21,3 +21,10 @@ jobs:
 
           - name: 'login'
             run:  docker login --username ${{secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOCKEN }}
+
+          - name: 'docker build image'
+            run:  docker build -t  ${{secrets.DOCKER_USERNAME }}/esraa10 .
+
+
+          - name: 'push  image to docker hub'
+            run:  docker push  ${{secrets.DOCKER_USERNAME }}/esraa10 
